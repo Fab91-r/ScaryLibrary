@@ -1,7 +1,5 @@
 package it.dstech.models;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,7 +10,7 @@ public class Autore {
 	@GeneratedValue
 	private Long idAutore;
 	private String nome;
-	private Date dataDiNascita;
+	private String dataDiNascita;
 	
 	public Long getIdAutore() {
 		return idAutore;
@@ -26,10 +24,10 @@ public class Autore {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDataDiNascita() {
+	public String getDataDiNascita() {
 		return dataDiNascita;
 	}
-	public void setDataDiNascita(Date dataDiNascita) {
+	public void setDataDiNascita(String dataDiNascita) {
 		this.dataDiNascita = dataDiNascita;
 	}
 	@Override

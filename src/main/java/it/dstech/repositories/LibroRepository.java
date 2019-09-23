@@ -13,7 +13,7 @@ public interface LibroRepository extends CrudRepository<Libro, Long> {
 
 	List<Libro> findByIdAutore(Long idAutore);
 
-	List<Libro> findTop10OrderByPrezzoDesc();
+	List<Libro> findTop10ByOrderByPrezzoDesc();
 
 
 }

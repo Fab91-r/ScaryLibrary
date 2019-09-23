@@ -1,35 +1,58 @@
 package it.dstech.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-
-import it.dstech.models.Libro;
+import java.io.Serializable;
+import java.util.List;
+import it.dstech.models.*;
+import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import it.dstech.services.AutoreService;
 import it.dstech.services.LibroService;
 
-@Controller
-public class ControllerApplication {
+@Named
+@ViewScoped
+public class ControllerApplication implements Serializable {
 
-	@Autowired
-	AutoreService autoreService;
-	@Autowired
-	LibroService libroService;
+	private static final long serialVersionUID = -4963716232725135768L;
+
+	@Inject
+	private LibroService libroService;
 	
+	@Inject
+	private AutoreService autoreService;
 	
-//	Libro libro = libroService.getLibroPerTitolo(titolo);
-//	
-//	List <Libro> list = libroService.getLibri();
-//    for(Libro libro : list)
-//    {
-//    	if(libro.getTitolo().equals(titolo))
-//    	{
-//    	Integer copieDisponibiliAggiornate = libro.getCopieDisponibili() + copieDisponibili;
-//		libro.setCopieDisponibili(copieDisponibiliAggiornate);
-//    	}
-//    	else
-//    	{
-//    		libroService.insertLibro(titolo, anno, idAutore, prezzo, pagine, copieDisponibili);
-//    	}
-//    }
+	private List<Libro> listaLibri;
+	
+	public LibroService getLibroService() {
+		return libroService;
+	}
+
+	public void setLibroService(LibroService libroService) {
+		this.libroService = libroService;
+	}
+
+	public AutoreService getAutoreService() {
+		return autoreService;
+	}
+
+	public void setAutoreService(AutoreService autoreService) {
+		this.autoreService = autoreService;
+	}
+
+	public List<Libro> getListaLibri() {
+		return listaLibri;
+	}
+
+	public void setListaLibri(List<Libro> listaLibri) {
+		this.listaLibri = listaLibri;
+	}
+
+	@PostConstruct
+	public void init()
+	{
+		
+	}
+	
 
 }

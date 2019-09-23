@@ -1,5 +1,6 @@
 package it.dstech.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -90,8 +91,42 @@ public class LibroService {
 	}
 
 	public List<Libro> getDieciLibriCostosi() {
-		List<Libro> lista = libroRepository.findTop10OrderByPrezzoDesc();
+		List<Libro> lista = libroRepository.findTop10ByOrderByPrezzoDesc();
 		return lista;
+	}
+
+	public List<Libro> getLibriPrenotabili() {
+		List<Libro> listaLibri = getAllLibri();
+		List<Libro> listaLibriPrenotabili = new ArrayList<>();
+		for (Libro libro : listaLibri) {
+			if (libro.getCopieDisponibili() > 0) {
+				listaLibriPrenotabili.add(libro);
+			}
+		}
+		return listaLibriPrenotabili;
+	}
+
+	public void prenotaLibro(Long id) {
+		Libro libro = getLibroPerId(id);
+		libro.setCopiePrenotate(libro.getCopiePrenotate() + 1);
+		libro.setCopieDisponibili(libro.getCopieDisponibili() - 1);
+	}
+	
+	public List<Libro> getLibriAnnullabili() {
+		List<Libro> listaLibri = getAllLibri();
+		List<Libro> listaLibriAnnullabili = new ArrayList<>();
+		for (Libro libro : listaLibri) {
+			if (libro.getCopiePrenotate() > 0) {
+				listaLibriAnnullabili.add(libro);
+			}
+		}
+		return listaLibriAnnullabili;
+	}
+
+	public void annullaLibro(Long id) {
+		Libro libro = getLibroPerId(id);
+		libro.setCopiePrenotate(libro.getCopiePrenotate() - 1);
+		libro.setCopieDisponibili(libro.getCopieDisponibili() + 1);
 	}
 
 }
