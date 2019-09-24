@@ -11,6 +11,8 @@ public interface AutoreRepository extends CrudRepository<Autore, Long> {
 
 	List<Autore> findTop11ByOrderByDataDiNascita();
 
+	Autore findByNome(String nome);
+
 	
 
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Inserisci Libro</title>
+</h:head>
+<body>
+
+
+	<h:form>
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:outputLabel for="titolo" value="Titolo: " />
+			<p:inputText id="titolo" value="#{viewLibri.titolo}" required="true" />
+
+			<p:outputLabel for="anno" value="Anno:" />
+			<p:inputMask id="anno" value="#{viewLibri.anno}" mask="9999"
+				required="true" />
+
+			<p:outputLabel for="prezzo" value="Prezzo:" />
+			<p:inputText id="prezzo" value="#{viewLibri.prezzo}" required="true" />
+
+			<p:outputLabel for="copieDisponibili" value="Copie disponibili:" />
+			<p:inputText id="copieDisponibili"
+				value="#{viewLibri.copieDisponibili}" required="true" />
+
+
+			<p:outputLabel for="autore" value="Autore: " />
+			<p:selectOneMenu id="autore" value="#{viewLibri.autore}">
+				<f:selectItem itemLabel="Seleziona" itemValue="" />
+				<f:selectItems value="#{viewLibri.listaAutori}" var="autore" itemLabel="#{autore.nome}" itemValue="#{autore.nome}" required="true" />
+			</p:selectOneMenu>	
+		</h:panelGrid>
+		<br></br>
+		<br></br>
+	<p:commandButton value="Inserisci" action="#{viewLibri.insert()}" />
+	</h:form>
+	<br></br>
+	<p:linkButton outcome="welcome.xhtml" value="Torna alla home"
+		style="margin-right:20px;">
+	</p:linkButton>
+
+</body>
+</html>

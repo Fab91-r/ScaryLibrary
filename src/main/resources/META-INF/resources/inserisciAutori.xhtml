@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    <title>Inserisci Autore</title>
+    </h:head>
+<body>
+
+
+<h:form>
+    <h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel for="nome" value="Nome: " />
+        <p:inputText id="nome" value="#{viewAutori.nome}" required="true"/>
+ 
+        <p:outputLabel for="dataDiNascita" value="Data di nascita (aaaa/mm/gg):" />
+        <p:inputMask id="dataDiNascita" value="#{viewAutori.dataDiNascita}" mask="9999/99/99" required="true"/>
+
+        <p:commandButton value="Inserisci" action="#{viewAutori.insert()}"/>
+    </h:panelGrid>
+</h:form>
+<br></br>
+<p:linkButton outcome="welcome.xhtml" value="Torna alla home" style="margin-right:20px;">
+</p:linkButton>
+
+</body>
+</html>

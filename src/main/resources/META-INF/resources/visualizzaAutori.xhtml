@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    <title>Visualizza Autori</title>
+    </h:head>
+<body>
+
+<p:dataTable var="autore" value="#{viewAutori.lista}">
+    <p:column headerText="Nome">
+        <h:outputText value="#{autore.nome}" />
+    </p:column>
+ 
+    <p:column headerText="Data di nascita">
+        <h:outputText value="#{autore.dataDiNascita}" />
+    </p:column>
+</p:dataTable>
+<br></br>
+<p:linkButton outcome="welcome.xhtml" icon="pi pi-home" value="Torna alla home" style="margin-right:20px;">
+</p:linkButton>
+
+</body>
+</html>

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ import it.dstech.repositories.LibroRepository;
 
 @Service
 public class LibroService {
-	@Autowired
+	@Inject
 	private LibroRepository libroRepository;
 
 	public List<Libro> getAllLibri() {
@@ -77,7 +79,7 @@ public class LibroService {
 		}
 	}
 
-	public Integer getPagineRandom(String titolo, String autore, Long idLibro) {
+	public Integer getPagineRandom(String titolo, String autore) {
 		String titoloSenzaSpazi = titolo.replace(" ", "");
 		int lunghezzaTitolo = titoloSenzaSpazi.length();
 		String regex = " ";

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    <title>Visualizza Libri</title>
+    </h:head>
+<body>
+
+<p:dataTable var="libro" value="#{viewLibri.listaLibri}">
+    <p:column headerText="Titolo">
+        <h:outputText value="#{libro.titolo}" />
+    </p:column>
+ 
+    <p:column headerText="Anno">
+        <h:outputText value="#{libro.anno}" />
+    </p:column>
+        <p:column headerText="Autore">
+        <h:outputText value="#{libro.autore}" />
+    </p:column>
+        <p:column headerText="Prezzo">
+        <h:outputText value="#{libro.prezzo}" />
+    </p:column>
+        <p:column headerText="Pagine">
+        <h:outputText value="#{libro.pagine}" />
+    </p:column>
+        <p:column headerText="Copie Disponibili">
+        <h:outputText value="#{libro.copieDisponibili}" />
+    </p:column>
+       <p:column headerText="Copie Prenotate">
+        <h:outputText value="#{libro.copiePrenotate}" />
+    </p:column>
+</p:dataTable>
+<br></br>
+<p:linkButton outcome="welcome.xhtml" icon="pi pi-home" value="Torna alla home" style="margin-right:20px;">
+</p:linkButton>
+
+</body>
+</html>

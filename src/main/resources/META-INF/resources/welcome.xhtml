@@ -1,35 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
     xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    <title>Welcome</title>
+    </h:head>
      <h:body>
 <h:form>
     <p:growl>
         <p:autoUpdate />
     </p:growl>
- 
+ <h1> BENVENUTO IN SCARY LIBRARY!!</h1>
+ <br></br>
     <p:panelMenu style="width:300px">
         <p:submenu label="Gestisci autori">
-            <p:menuitem value="Visualizza autori" action="#{menuView.save}" icon="pi pi-eye" />
-            <p:menuitem value="Inserisci un autore" action="#{menuView.update}"  icon="pi pi-plus" />
-            <p:menuitem value="Modifica un autore" action="#{menuView.update}"  icon="pi pi-pencil" />
-            <p:menuitem value="Elimina un autore" action="#{menuView.update}"  icon="pi pi-trash" />
+            <p:menuitem value="Visualizza autori" url="visualizzaAutori.xhtml" />
+            <p:menuitem value="Inserisci un autore" url="inserisciAutori.xhtml"  />
+            <p:menuitem value="Modifica un autore" url="modificaAutori.xhtml"  />
+            <p:menuitem value="Elimina un autore" url="eliminaautori.xhtml" />
         </p:submenu>
         <p:submenu label="Gestisci Libri">
-            <p:menuitem value="Delete" action="#{menuView.delete}"  ajax="false" icon="pi pi-times"/>
+           <p:menuitem value="Visualizza Libri" url="visualizzaLibri.xhtml" />
+            <p:menuitem value="Inserisci un libro" url="inserisciLibri.xhtml" />
+            <p:menuitem value="Modifica un libro" url="modificaLibri.xhtml" />
+            <p:menuitem value="Elimina un libro" url="eliminaLibri.xhtml" />
         </p:submenu>
         <p:separator />
         <p:submenu label="Gestisci Prenotazioni" >
-            <p:submenu label="Links" icon="pi pi-home">
-                <p:submenu label="PrimeFaces" icon="pi pi-briefcase">
-                    <p:menuitem value="Home" url="http://www.primefaces.org" icon="pi pi-home" />
-                    <p:menuitem value="Docs" url="http://www.primefaces.org/documentation" icon="pi pi-file" />
-                    <p:menuitem value="Download" url="http://www.primefaces.org/downloads" icon="pi pi-arrow-down" />
-                    <p:menuitem value="Support" url="http://www.primefaces.org/support" icon="pi pi-briefcase" />
-                </p:submenu>
+           <p:menuitem value="Prenota un libro" action="prenotaLibro"/>
+            <p:menuitem value="Annulla un libro prenotato" action="annullaLibro"/>
             </p:submenu>
-            <p:menuitem value="Mobile" icon="pi pi-mobile" />
-        </p:submenu>
     </p:panelMenu>
 </h:form>
     

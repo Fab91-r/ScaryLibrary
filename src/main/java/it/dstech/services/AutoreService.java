@@ -11,6 +11,8 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +24,9 @@ import it.dstech.repositories.LibroRepository;
 @Service
 public class AutoreService {
 
-	@Autowired
+	@Inject
 	private AutoreRepository autoreRepository;
-	@Autowired
+	@Inject
 	private LibroService libroService;
 
 	public List<Autore> getAllAutori() {
@@ -60,6 +62,7 @@ public class AutoreService {
 	}
 
 	public List<Entry<String, Integer>> getAutoriConPiuLibri() {
+
 		HashMap<String, Integer> map = new HashMap<>();
 		List<Autore> listaAutori = getAllAutori();
 		for (Autore autore : listaAutori) {
@@ -74,4 +77,10 @@ public class AutoreService {
         return list;
 	}
 
+	public Long getIdPerAutore(String nome)
+	{
+		Autore autore = autoreRepository.findByNome(nome);
+		Long id = autore.getIdAutore();
+		return id;
+	}
 }
